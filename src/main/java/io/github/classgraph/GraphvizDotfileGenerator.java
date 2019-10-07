@@ -517,9 +517,9 @@ final class GraphvizDotfileGenerator {
         buf.append("overlap=false;\n");
         buf.append("splines=true;\n");
         buf.append("pack=true;\n");
-        buf.append("graph [fontname = \"Courier, Regular\"]\n");
-        buf.append("node [fontname = \"Courier, Regular\"]\n");
-        buf.append("edge [fontname = \"Courier, Regular\"]\n");
+        buf.append("graph [fontname = \"\"]\n");
+        buf.append("node [fontname = \"\"]\n");
+        buf.append("edge [fontname = \"\"]\n");
 
         final ClassInfoList standardClassNodes = classInfoList.getStandardClasses();
         final ClassInfoList interfaceNodes = classInfoList.getInterfaces();
