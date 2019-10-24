@@ -24,24 +24,25 @@ public class ClassGraphGraphVizGenerator {
      */
     public static void main(final String[] args) throws IOException {
         try (ScanResult scanResult = new ClassGraph() //
-                .whitelistPackagesNonRecursive("io.github.classgraph") //
+                .whitelistPackages("com.shangde.dragnet.api.web.wechatCollectManager","com.shangde.dragnet.service") //
                 .enableMethodInfo() //
                 .ignoreMethodVisibility() //
                 .enableFieldInfo() //
                 .ignoreFieldVisibility() //
                 .enableAnnotationInfo() //
-                // .enableInterClassDependencies() //
+                 .enableInterClassDependencies() //
+                .enableRemoteJarScanning()
                 // .verbose() //
                 .scan()) {
-            final String fileName = "D:\\project\\newProject\\new_code_gen\\classgraph\\target/graph1.dot";
+            final String fileName = "D:\\project\\newProject\\new_code_gen\\classgraph\\target/graph5.dot";
             try (PrintWriter writer = new PrintWriter(fileName)) {
                 writer.print(scanResult.getAllClasses()
                         // .generateGraphVizDotFileFromClassDependencies()
-                        .generateGraphVizDotFile(12, 8, false, true, false, true, true));
+                        .generateGraphVizDotFile(16, 12, true, true, false, true, false));
             }
             MutableGraph g;
             g = Parser.read(new File(fileName));
-            Graphviz.fromGraph(g).width(6000).render(Format.PNG).toFile(new File("D:\\project\\newProject\\new_code_gen\\classgraph\\target/graph1.png"));
+            Graphviz.fromGraph(g).width(8000).height(6000).render(Format.PNG).toFile(new File("D:\\project\\newProject\\new_code_gen\\classgraph\\target/graph5.png"));
             System.out.println("Wrote " + fileName);
         }
     }

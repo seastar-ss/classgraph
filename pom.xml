@@ -425,6 +425,23 @@
             <artifactId>graphviz-java</artifactId>
             <version>0.11.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.sunlands.config</groupId>
+            <artifactId>config-center-client</artifactId>
+            <version>2.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shangde.dragnet</groupId>
+            <artifactId>dragnet-wechat-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.shangde.dragnet</groupId>
+            <artifactId>dragnet-wechat-api-web</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -480,7 +497,50 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>shangde public</name>
+            <url>http://172.16.117.215:8100/archiva/repository/public/</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>interval:30</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>snapshots</id>
+            <name>shangde snapshots</name>
+            <url>http://172.16.117.215:8100/archiva/repository/snapshots/</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>interval:30</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>sunlands-public</id>
+            <name>sunlands public mirror</name>
+            <url>http://192.168.1.216:8100/archiva/repository/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>sunlands-snapshots</id>
+            <name>sunlands snapshots mirror</name>
+            <url>http://192.168.1.216:8100/archiva/repository/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
     <profiles>
         <!-- Compile Javadoc to HTML5 if building with JDK 9+ -->
         <profile>
